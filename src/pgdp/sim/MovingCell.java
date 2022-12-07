@@ -15,6 +15,7 @@ public abstract class MovingCell implements Cell {
     public abstract int initialFood();
     public abstract Cell getNew();
     public void move(Cell[] cells, Cell[] newCells,int width, int height, int x, int y) {
+        //TODO
         //eiens der 8 felder um Cell finden
         int num = RandomGenerator.nextInt(7);
         //falls >= 4 eins größer machen sodass index wieder stimmt
@@ -37,10 +38,10 @@ public abstract class MovingCell implements Cell {
         System.out.println("y " + y);*/
     }
     public void eat (Cell[] cells, Cell[] newCells,int width, int height, int x, int y) {
-
+        //TODO
     }
     public void tick(Cell[] cells, Cell[] newCells,int width, int height, int x, int y) {
-
+        //TODO
     }
     public int priority() { //implementiert
         return 1;
