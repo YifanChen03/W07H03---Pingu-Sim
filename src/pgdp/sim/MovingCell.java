@@ -8,11 +8,11 @@ public abstract class MovingCell implements Cell {
         food = initialFood();
     }
 
-    public abstract boolean canEat();
+    public abstract boolean canEat(Cell other);
     public abstract int foodConsumption();
     public abstract int consumedFood();
     public abstract int reproductionCost();
-    public abstract long initialFood();
+    public abstract int initialFood();
     public abstract Cell getNew();
     public void move(Cell[] cells, Cell[] newCells,int width, int height, int x, int y) {
         //eiens der 8 felder um Cell finden
