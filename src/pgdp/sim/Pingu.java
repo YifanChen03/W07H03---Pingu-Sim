@@ -3,43 +3,39 @@ package pgdp.sim;
 public class Pingu extends MovingCell {
     @Override
     public CellSymbol getSymbol() {
-        //TODO
-        return null;
+        return CellSymbol.PINGU;
     }
 
     @Override
     public boolean canEat(Cell other) {
-        //TODO
+        if (other.getSymbol() == CellSymbol.PLANT) {
+            return true;
+        }
         return false;
     }
 
     @Override
     public int foodConsumption() {
-        //TODO
-        return 0;
+        return SimConfig.pinguFoodConsumption;
     }
 
     @Override
     public int consumedFood() {
-        //TODO
-        return 0;
+        return SimConfig.pinguConsumedFood;
     }
 
     @Override
     public int reproductionCost() {
-        //TODO
-        return 0;
+        return SimConfig.pinguReproductionCost;
     }
 
     @Override
     public int initialFood() {
-        //TODO
-        return 0;
+        return SimConfig.pinguInitialFood;
     }
 
     @Override
     public Cell getNew() {
-        //TODO
-        return null;
+        return new Pingu();
     }
 }

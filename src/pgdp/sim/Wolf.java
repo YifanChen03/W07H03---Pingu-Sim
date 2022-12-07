@@ -3,43 +3,39 @@ package pgdp.sim;
 public class Wolf extends MovingCell{
     @Override
     public CellSymbol getSymbol() {
-        //TODO
-        return null;
+        return CellSymbol.WOLF;
     }
 
     @Override
     public boolean canEat(Cell other) {
-        //TODO
+        if (other.getSymbol() == CellSymbol.HAMSTER) {
+            return true;
+        }
         return false;
     }
 
     @Override
     public int foodConsumption() {
-        //TODO
-        return 0;
+        return SimConfig.wolfFoodConsumption;
     }
 
     @Override
     public int consumedFood() {
-        //TODO
-        return 0;
+        return SimConfig.wolfConsumedFood;
     }
 
     @Override
     public int reproductionCost() {
-        //TODO
-        return 0;
+        return SimConfig.wolfReproductionCost;
     }
 
     @Override
     public int initialFood() {
-        //TODO
-        return 0;
+        return SimConfig.wolfInitialFood;
     }
 
     @Override
     public Cell getNew() {
-        //TODO
-        return null;
+        return new Wolf();
     }
 }
