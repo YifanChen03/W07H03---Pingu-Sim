@@ -31,5 +31,4 @@ public class CellSymbol {
 	public String toString() {
 		return name;
 	}
-
 }
