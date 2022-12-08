@@ -10,10 +10,10 @@ public interface Cell {
 		// get available space
 		int[] available = new int[48];
 		int len = 0;
-		int upperY = Math.max(height, y + 2);
-		int upperX = Math.max(width, x + 2);
-		for (int ny = Math.min(0, y - 2); ny < upperY; ny++) {
-			for (int nx = Math.min(0, x - 2); nx < upperX; nx++) {
+		int upperY = Math.min(height, y + 2);
+		int upperX = Math.min(width, x + 2);
+		for (int ny = Math.max(0, y - 2); ny < upperY; ny++) {
+			for (int nx = Math.max(0, x - 2); nx < upperX; nx++) {
 				if (ny != y | nx != x) {
 					if (cells[nx + ny * width] == null) {
 						available[len << 1] = nx;
@@ -30,8 +30,12 @@ public interface Cell {
 		int nx = available[used << 1];
 		int ny = available[(used << 1) + 1];
 		int position = nx + ny * width;
-		if (newCells[position] == null || newCells[position].priority() < this.priority())
+		if (newCells[position] == null || newCells[position].priority() < this.priority()) {
 			newCells[position] = this;
-		return true;
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 }

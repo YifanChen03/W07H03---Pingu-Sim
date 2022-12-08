@@ -18,4 +18,30 @@ public class Simulation {
 	public void tick() {
 		// TODO: Diese Methode implementieren
 	}
+
+	//Getter und Setter für junit tests
+
+	public Cell[] getCells() {
+		return cells;
+	}
+
+	public void setCells(Cell[] cells) {
+		this.cells = cells;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
 }

@@ -19,11 +19,15 @@ public class Plant implements Cell{
 
     @Override
     public void tick(Cell[] cells, Cell[] newCells, int width, int height, int x, int y) {
-        newCells[x * y] = this;
+        newCells[x + y * width] = this;
         int add_growth = RandomGenerator.nextInt(SimConfig.plantMinGrowth, SimConfig.plantMaxGrowth);
         growth += add_growth;
-        while (growth >= SimConfig.plantReproductionCost && (this.place(cells, newCells, width, height, x, y))) {
-            growth -= SimConfig.plantReproductionCost;
+        while (growth >= SimConfig.plantReproductionCost) {
+            if (new Plant().place(cells, newCells, width, height, x, y)) {
+                growth -= SimConfig.plantReproductionCost;
+            } else {
+                break;
+            }
         }
     }
 }

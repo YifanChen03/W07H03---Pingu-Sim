@@ -8,7 +8,7 @@ public class Hamster extends MovingCell {
 
     @Override
     public boolean canEat(Cell other) {
-        if (other.getSymbol() == CellSymbol.PLANT) {
+        if (other != null && other.getSymbol() == CellSymbol.PLANT) {
             return true;
         }
         return false;
