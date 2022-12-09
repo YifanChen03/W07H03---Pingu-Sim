@@ -1,5 +1,7 @@
 package pgdp.sim;
 
+import java.util.*;
+
 public class Simulation {
 	private Cell[] cells;
 	private int width;
@@ -16,7 +18,21 @@ public class Simulation {
 	 *  dann wird auf allen Cells die tick()-Methode aufgerufen.
 	 */
 	public void tick() {
-		// TODO: Diese Methode implementieren
+		//kopie erstellen
+		Cell[] copyOfCells = Arrays.copyOf(cells, cells.length);
+		//rufe eat auf
+		for (int i = 0; i < cells.length; i++) {
+			if (cells[i] instanceof MovingCell) {
+				((MovingCell) cells[i]).eat(cells, copyOfCells, width, height, i % width, (i - (i % width)) / width);
+			}
+		}
+		//ursprüngliches array mit null füllen
+		Arrays.fill(cells, null);
+		//auf jeder Zelle tick ausführen
+		for (int i = 0; i < copyOfCells.length; i++) {
+			if (copyOfCells[i] != null)
+				copyOfCells[i].tick(copyOfCells, cells, width, height, i % width, (i - (i % width)) / width);
+		}
 	}
 
 	//Getter und Setter für junit tests
