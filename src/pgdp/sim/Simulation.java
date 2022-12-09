@@ -27,7 +27,8 @@ public class Simulation {
 			}
 		}
 		//ursprüngliches array mit null füllen
-		Arrays.fill(cells, null);
+		cells = Arrays.copyOf(new Cell[cells.length], cells.length);
+
 		//auf jeder Zelle tick ausführen
 		for (int i = 0; i < copyOfCells.length; i++) {
 			if (copyOfCells[i] != null)
