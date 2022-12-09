@@ -29,7 +29,7 @@ public class Simulation {
 		//ursprüngliches array mit null füllen
 		cells = Arrays.copyOf(new Cell[cells.length], cells.length);
 
-		//auf jeder Zelle tick ausführen
+		//auf jeder Zelle tick ausführen wenn ausführbar
 		for (int i = 0; i < copyOfCells.length; i++) {
 			if (copyOfCells[i] != null)
 				copyOfCells[i].tick(copyOfCells, cells, width, height, i % width, (i - (i % width)) / width);
