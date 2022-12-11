@@ -8,7 +8,7 @@ public class Wolf extends MovingCell{
 
     @Override
     public boolean canEat(Cell other) {
-        if (other != null && other.getSymbol() == CellSymbol.HAMSTER) {
+        if (other != null && other instanceof Hamster) {
             return true;
         }
         return false;

@@ -8,7 +8,7 @@ public class Pingu extends MovingCell {
 
     @Override
     public boolean canEat(Cell other) {
-        if (other != null && other.getSymbol() == CellSymbol.PLANT) {
+        if (other != null && other instanceof Plant) {
             return true;
         }
         return false;
