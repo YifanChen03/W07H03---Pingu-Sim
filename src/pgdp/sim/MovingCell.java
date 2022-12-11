@@ -112,9 +112,10 @@ public abstract class MovingCell implements Cell {
                 break;
         }
         //prüfe ob cell frei
-        if (cells[m_ind] == null && newCells[m_ind] == null) {
+        if (m_ind >= 0 && m_ind < cells.length && cells[m_ind] == null && newCells[m_ind] == null) {
             newCells[m_ind] = this;
             newCells[ind] = null;
+            cells[ind] = null;
             return;
         }
         newCells[ind] = this;
